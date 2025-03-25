@@ -1,4 +1,3 @@
-
 // Dados de exemplo para depoimentos
 const testimonials = [
   {
@@ -63,7 +62,7 @@ const ClientTestimonials = () => {
                 </div>
               </div>
 
-              <p className="text-gray-600 italic">"{testimonial.content}"</p>
+              <p className="text-gray-600 italic">{`"${testimonial.content}"`}</p>
               
               <div className="mt-4 flex text-yellow-400">
                 {[...Array(5)].map((_, i) => (
