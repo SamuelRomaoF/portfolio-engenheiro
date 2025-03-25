@@ -1,0 +1,251 @@
+@import "tailwindcss";
+
+:root {
+  --primary: #e20613;
+  --primary-foreground: #ffffff;
+  
+  --secondary: #000000;
+  --secondary-foreground: #ffffff;
+  
+  --accent: #e20613;
+  --accent-foreground: #ffffff;
+  --accent-hover: #bf0510;
+  
+  --background: #ffffff;
+  --foreground: #000000;
+  
+  --card: #ffffff;
+  --card-foreground: #000000;
+  
+  --popover: #ffffff;
+  --popover-foreground: #000000;
+  
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  
+  --destructive: #ff0000;
+  --destructive-foreground: #ffffff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --font-sans: var(--font-roboto);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: #e20613;
+    --primary-foreground: #ffffff;
+    
+    --secondary: #000000;
+    --secondary-foreground: #ffffff;
+    
+    --accent: #e20613;
+    --accent-foreground: #ffffff;
+    --accent-hover: #bf0510;
+    
+    --background: #000000;
+    --foreground: #ffffff;
+    
+    --card: #0f0f0f;
+    --card-foreground: #ffffff;
+    
+    --popover: #0f0f0f;
+    --popover-foreground: #ffffff;
+    
+    --border: #27272a;
+    --input: #27272a;
+    
+    --muted: #262626;
+    --muted-foreground: #a1a1aa;
+    
+    --destructive: #ff0000;
+    --destructive-foreground: #ffffff;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Botões primários (vermelho) */
+.bg-green-600 {
+  background-color: var(--primary) !important;
+}
+
+.bg-green-700, 
+.hover\:bg-green-700:hover {
+  background-color: var(--accent-hover) !important;
+}
+
+/* Textos com acento verde mudam para vermelho */
+.text-green-600, 
+.text-green-500 {
+  color: var(--primary) !important;
+}
+
+.hover\:text-green-600:hover, 
+.hover\:text-green-700:hover {
+  color: var(--accent-hover) !important;
+}
+
+/* Bordas e outros elementos */
+.focus\:ring-green-500:focus {
+  --tw-ring-color: var(--primary) !important;
+}
+
+.focus\:border-green-500:focus {
+  border-color: var(--primary) !important;
+}
+
+/* Elementos com cor azul mudam para preto com texto branco */
+.bg-blue-600 {
+  background-color: var(--secondary) !important;
+}
+
+.hover\:bg-blue-700:hover {
+  background-color: #222222 !important;
+}
+
+.text-blue-500,
+.text-blue-600 {
+  color: var(--primary) !important;
+}
+
+/* Corrigir texto verde para vermelho */
+.text-green-700 {
+  color: var(--primary) !important;
+}
+
+/* Corrigir hover dos botões vermelhos */
+.bg-primary:hover {
+  background-color: var(--accent-hover) !important;
+}
+
+/* Classes para botão principal */
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-hover);
+}
+
+/* Texto amarelo muda para vermelho */
+.text-yellow-600 {
+  color: var(--primary) !important;
+}
+
+/* Configurações de fonte adicionais para garantir consistência */
+h1, h2, h3, h4, h5, h6, p, span, a, button, input, textarea, li {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Refinamentos de tamanho e peso */
+h1 {
+  font-weight: 700;
+}
+
+h2, h3 {
+  font-weight: 500;
+}
+
+p, li {
+  font-weight: 400;
+}
+
+.font-light {
+  font-weight: 300;
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+.bg-primary {
+  background-color: var(--primary);
+}
+
+.border-primary {
+  border-color: var(--primary);
+}
+
+/* Garantir que todos os elementos "Saiba mais" em verde sejam vermelhos */
+.text-green-400,
+.text-green-500, 
+.text-green-600, 
+.text-green-700 {
+  color: var(--primary) !important;
+}
+
+a.text-green-400,
+a.text-green-500,
+a.text-green-600, 
+a.text-green-700,
+button.text-green-400,
+button.text-green-500,
+button.text-green-600,
+button.text-green-700,
+span.text-green-400,
+span.text-green-500,
+span.text-green-600,
+span.text-green-700 {
+  color: var(--primary) !important;
+}
+
+a.text-green-400:hover,
+a.text-green-500:hover,
+a.text-green-600:hover, 
+a.text-green-700:hover,
+button.text-green-400:hover,
+button.text-green-500:hover,
+button.text-green-600:hover,
+button.text-green-700:hover,
+span.text-green-400:hover,
+span.text-green-500:hover,
+span.text-green-600:hover,
+span.text-green-700:hover {
+  color: var(--accent-hover) !important;
+}
+
+/* Garantir que todos os botões verdes sejam vermelhos */
+.bg-green-500,
+.bg-green-600,
+.bg-green-700 {
+  background-color: var(--primary) !important;
+}
+
+a.bg-green-500,
+a.bg-green-600,
+a.bg-green-700,
+button.bg-green-500,
+button.bg-green-600,
+button.bg-green-700 {
+  background-color: var(--primary) !important;
+}
+
+a.bg-green-500:hover,
+a.bg-green-600:hover,
+a.bg-green-700:hover,
+button.bg-green-500:hover,
+button.bg-green-600:hover,
+button.bg-green-700:hover,
+.hover\:bg-green-500:hover,
+.hover\:bg-green-600:hover,
+.hover\:bg-green-700:hover {
+  background-color: var(--accent-hover) !important;
+}
