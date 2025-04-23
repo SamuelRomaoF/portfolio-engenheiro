@@ -8,7 +8,7 @@ export default function StatsSection() {
         
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center max-w-5xl mx-auto">
           <div className="flex flex-col items-center">
-            <p className="text-5xl md:text-6xl lg:text-7xl font-bold mb-2">2+</p>
+            <p className="text-5xl md:text-6xl lg:text-7xl font-bold mb-2">+2</p>
             <p className="text-lg font-medium">anos</p>
             <p className="text-sm text-gray-400">no mercado</p>
           </div>
@@ -26,7 +26,7 @@ export default function StatsSection() {
           </div>
           
           <div className="flex flex-col items-center">
-            <p className="text-5xl md:text-6xl lg:text-7xl font-bold mb-2">100+</p>
+            <p className="text-5xl md:text-6xl lg:text-7xl font-bold mb-2">+100</p>
             <p className="text-lg font-medium">clientes</p>
             <p className="text-sm text-gray-400">atendidos</p>
           </div>

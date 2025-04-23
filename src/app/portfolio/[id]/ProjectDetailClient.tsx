@@ -4,8 +4,8 @@ import { useRouter } from 'next/navigation';
 import Footer from '../../components/Footer';
 import ProjectGallery from '../../components/portfolio/ProjectGallery';
 import ProjectInfo from '../../components/portfolio/ProjectInfo';
-import { SERVICOS } from '../../components/portfolio/projectsData';
 import RelatedProjects from '../../components/portfolio/RelatedProjects';
+import { ServiceDetail } from '../../components/portfolio/types';
 
 interface Project {
   id: string;
@@ -20,6 +20,8 @@ interface Project {
   description1?: string;
   description2?: string;
   gallery?: string[];
+  serviceDetails?: ServiceDetail[];
+  subtitulo?: string;
 }
 
 interface ProjectDetailClientProps {
@@ -35,35 +37,19 @@ export default function ProjectDetailClient({ project, tagNames }: ProjectDetail
     return tagNames[tagId] || tagId;
   };
 
-  // Títulos e mensagens baseados no tipo de projeto
+  // Re-introducing simplified CTA logic
   const getCtaContent = () => {
-    if (project.id === "1") {
-      return {
-        title: "Precisa de Georreferenciamento Rural? Fale Conosco!",
-        description: "Nossa equipe especializada está pronta para atender às suas necessidades de georreferenciamento rural.",
-        whatsappText: "Olá, vi o projeto de Georreferenciamento Rural para INCRA no seu site e gostaria de mais informações."
-      };
-    } else if (project.tags?.includes(SERVICOS.LAUDOS_TECNICOS) || project.tags?.includes(SERVICOS.LAUDOS_AVALIACAO)) {
-      return {
-        title: "Precisa de Laudos Técnicos? Fale Conosco!",
-        description: "Nossa equipe especializada está pronta para elaborar laudos técnicos com precisão e qualidade para seu projeto.",
-        whatsappText: `Olá, vi o projeto ${project.nome} no seu site e gostaria de mais informações sobre laudos técnicos.`
-      };
-    } else if (project.tags?.includes(SERVICOS.GESTAO_OBRAS)) {
-      return {
-        title: "Precisa de Gestão de Obras? Fale Conosco!",
-        description: "Nossa equipe especializada está pronta para oferecer soluções completas em gestão de obras.",
-        whatsappText: `Olá, vi o projeto ${project.nome} no seu site e gostaria de mais informações sobre gestão de obras.`
-      };
-    } else {
-      return {
-        title: "Precisa de soluções em Arquitetura e Engenharia? Fale Conosco!",
-        description: "Nossa equipe especializada está pronta para atender às suas necessidades com qualidade e dedicação.",
-        whatsappText: `Olá, vi o projeto ${project.nome} no seu site e gostaria de mais informações.`
-      };
-    }
-  };
+    // Define a mensagem personalizada usando o nome do projeto
+    const personalizedWhatsappText = `Olá, vi o projeto '${project.nome}' em seu site e gostaria de mais informações sobre os serviços relacionados.`;
 
+    // Always return the specific title and the NEW description
+    return {
+      title: "Precisa de Soluções Técnicas? Fale Conosco!",
+      description: "Precisa deste serviço para um processo em andamento? Fale com nossos especialistas agora mesmo!",
+      // Using a relevant WhatsApp text
+      whatsappText: personalizedWhatsappText // <-- Usa a mensagem personalizada
+    };
+  };
   const ctaContent = getCtaContent();
 
   return (
@@ -98,27 +84,25 @@ export default function ProjectDetailClient({ project, tagNames }: ProjectDetail
         </div>
       )}
       
-      {/* Informações do Projeto */}
+      {/* Informações do Projeto - Passando as props necessárias */}
       <ProjectInfo 
-        location={project.location || ''}
-        projectDate={project.projectDate || ''}
-        completionDate={project.completionDate || ''}
-        siteArea={project.siteArea || ''}
-        builtArea={project.builtArea || ''}
-        description1={project.description1 || ''}
-        description2={project.description2 || ''}
+        serviceDetails={project.serviceDetails}
+        subtitulo={project.subtitulo}
       />
       
       {/* Galeria do Projeto */}
-      <ProjectGallery 
-        images={project.gallery || []} 
-      />
+      {project.gallery && project.gallery.length > 0 && (
+        <ProjectGallery images={project.gallery} />
+      )}
       
-      {/* Chamada para ação - WhatsApp (para todos os projetos) */}
-      <div className="py-12 bg-green-50">
+      {/* RESTORING ORIGINAL CTA STRUCTURE with CORRECTED description */}
+      <div className="py-12 bg-green-50"> 
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-2xl font-bold text-primary mb-4">{ctaContent.title}</h2>
-          <p className="text-gray-600 mb-6">{ctaContent.description}</p>
+          {/* Title remains */}
+          <h2 className="text-2xl font-bold text-primary mb-4">{ctaContent.title}</h2> 
+          {/* NEW Description text goes here */}
+          <p className="text-gray-600 mb-6">{ctaContent.description}</p> 
+          {/* Button remains */}
           <a 
             href={`https://wa.me/5511976428037?text=${encodeURIComponent(ctaContent.whatsappText)}`}
             target="_blank" 

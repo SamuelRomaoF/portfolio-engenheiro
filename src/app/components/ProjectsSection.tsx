@@ -4,17 +4,17 @@ import Link from 'next/link';
 const services = [
   {
     id: 1,
-    title: 'Projetos Arquitetônicos',
+    title: 'Advogados e Escritórios',
     description: 'Desenvolvemos projetos residenciais e comerciais, desde o conceito até a execução, garantindo funcionalidade e estética.',
   },
   {
     id: 2,
-    title: 'Laudos Técnicos',
+    title: 'Proprietários de Imóveis',
     description: 'Realizamos laudos de avaliação, patologias, acessibilidade e regularizações, com precisão e agilidade.',
   },
   {
     id: 3,
-    title: 'Gestão de Obras',
+    title: 'Propriedades Urbanas e Rurais',
     description: 'Acompanhamos todas as etapas da obra, garantindo qualidade, segurança e cumprimento dos prazos.',
   }
 ];
@@ -27,7 +27,7 @@ const ProjectsSection = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4 font-serif">
             Nossos Serviços
           </h2>
-          <p className="text-gray-600 max-w-3xl mx-auto">
+          <p className="text-gray-600 mx-auto">
             Oferecemos soluções completas em arquitetura e engenharia, com qualidade e inovação.
           </p>
         </div>
@@ -38,7 +38,7 @@ const ProjectsSection = () => {
               <div className="relative h-80 overflow-hidden rounded-lg shadow-lg">
                 {service.id === 2 ? (
                   <img 
-                    src="https://samoengenharia.com.br/wp-content/uploads/2021/08/Laudo-de-Entrega-e-Recebimento-de-Obras-no-bairro-Funcionarios-1024x632.jpg"
+                    src="https://images.pexels.com/photos/4458205/pexels-photo-4458205.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                     alt={service.title}
                     className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500"
                     style={{ objectPosition: 'center center' }}
@@ -52,7 +52,7 @@ const ProjectsSection = () => {
                   />
                 ) : (
                   <img 
-                    src="https://images.unsplash.com/photo-1574351391781-5fe86e0a6eb7?q=80&w=1974&auto=format&fit=crop"
+                    src="https://images.pexels.com/photos/7937751/pexels-photo-7937751.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                     alt={service.title}
                     className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500 transform group-hover:scale-105"
                   />
@@ -79,7 +79,7 @@ const ProjectsSection = () => {
             href="/portfolio" 
             className="inline-block bg-primary hover:bg-accent-hover text-white py-3 px-8 rounded-md shadow-md transition duration-300 font-medium"
           >
-            VER PROJETOS
+            VEJA TODOS OS SERVIÇOS
           </Link>
         </div>
       </div>

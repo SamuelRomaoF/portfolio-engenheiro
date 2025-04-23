@@ -13,14 +13,14 @@ export default function CareerSection() {
               <p className="text-gray-600 mb-1">
                 Envie seu currículo para:
               </p>
-              <a href="mailto:recrutamento@rekaengenharia.com.br" className="text-gray-600 flex items-center justify-end">
+              <a href="mailto:recrutamento@rekaiengenharia.com.br" className="text-gray-600 flex items-center justify-end">
                 <span className="inline-flex mr-2">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
                     <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" />
                     <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
                   </svg>
                 </span>
-                <span>recrutamento@rekaengenharia.com.br</span>
+                <span>recrutamento@rekaiengenharia.com.br</span>
               </a>
             </div>
             <div className="flex-shrink-0 ml-2">
@@ -47,14 +47,14 @@ export default function CareerSection() {
               <p className="text-gray-600 mb-1">
                 Entre em contato pelo e-mail:
               </p>
-              <a href="mailto:suprimentos@rekaengenharia.com.br" className="text-gray-600 flex items-center">
+              <a href="mailto:suprimentos@rekaiengenharia.com.br" className="text-gray-600 flex items-center">
                 <span className="inline-flex mr-2">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
                     <path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z" />
                     <path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z" />
                   </svg>
                 </span>
-                <span>suprimentos@rekaengenharia.com.br</span>
+                <span>suprimentos@rekaiengenharia.com.br</span>
               </a>
             </div>
           </div>

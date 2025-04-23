@@ -37,8 +37,7 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="icon" type="image/png" href="/icone-rekai.png" />
+        <link rel="icon" href="/logorodape.ico" />
       </head>
       <body
         className={`${roboto.variable} font-roboto antialiased`}

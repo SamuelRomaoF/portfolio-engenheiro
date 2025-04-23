@@ -4,7 +4,7 @@ export default function TeamSection() {
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold uppercase mb-8">
-            NOSSA EQUIPE
+            NOSSO TIME
           </h2>
           
           <p className="text-gray-700 mb-6 leading-relaxed">

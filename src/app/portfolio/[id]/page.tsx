@@ -42,8 +42,13 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function ProjectDetail({ params }: { params: PageParams }) {
-  const projectId = params.id;
+// Make the component function async and receive full props object
+export default async function ProjectDetail(props: { params: PageParams }) {
+  // Workaround: Await a microtask before accessing params
+  await Promise.resolve();
+
+  // Access id via props.params.id
+  const projectId = props.params.id;
   
   // Encontra o projeto com base no ID da URL
   const project = projectsData.find(p => p.id === projectId);

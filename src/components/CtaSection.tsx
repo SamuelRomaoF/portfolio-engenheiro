@@ -1,4 +1,3 @@
-import React from 'react';
 import Link from 'next/link';
 
 const CtaSection = () => {
@@ -6,11 +5,11 @@ const CtaSection = () => {
     <section className="py-20 bg-gradient-to-r from-green-700 to-green-800 text-white">
       <div className="container mx-auto px-4 text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-6">
-          Precisa de um laudo técnico de engenharia?
+          Precisa de assessoria técnica especializada para seu órgão? Fale com nossa equipe credenciada!
         </h2>
         <p className="text-xl md:text-2xl text-green-100 max-w-3xl mx-auto mb-10">
-          Entre em contato conosco hoje mesmo e solicite um orçamento 
-          personalizado para o seu projeto.
+          Projetos, consultorias e regularizações que atendem às exigências legais e otimizam recursos 
+          públicos.
         </p>
         <div className="flex flex-col sm:flex-row justify-center gap-4">
           <Link 

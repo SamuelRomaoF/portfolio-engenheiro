@@ -2,6 +2,12 @@
 
 import React, { memo, useCallback, useState } from 'react';
 
+// Definir tipo para os itens do FAQ
+interface FAQItemData {
+  question: string;
+  answer: React.ReactNode;
+}
+
 // Componente de FAQ item otimizado com memo
 const FAQItem = memo(({ 
   item, 
@@ -48,7 +54,7 @@ const FAQItem = memo(({
 
 FAQItem.displayName = 'FAQItem';
 
-// Componente de formulário otimizado com memo
+// Componente de formulário usando envio HTML + Feedback na página (sem limpar campos)
 const ContactForm = memo(() => {
   const [formData, setFormData] = useState({
     nome: '',
@@ -56,63 +62,41 @@ const ContactForm = memo(() => {
     telefone: '',
     mensagem: ''
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
+    if (showSuccessMessage) setShowSuccessMessage(false);
     setFormData(prev => ({
       ...prev,
       [name]: value
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus('idle');
-
-    try {
-      const response = await fetch('https://formsubmit.co/ofc.samuelromao@gmail.com', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          ...formData,
-          _subject: `Novo contato pelo site - ${formData.nome}`,
-        }),
-      });
-
-      if (response.ok) {
-        setSubmitStatus('success');
-        setFormData({
-          nome: '',
-          email: '',
-          telefone: '',
-          mensagem: ''
-        });
-      } else {
-        setSubmitStatus('error');
-      }
-    } catch (error) {
-      console.error('Erro ao enviar formulário:', error);
-      setSubmitStatus('error');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+  const handleFormSubmit = useCallback(() => {
+    setShowSuccessMessage(true);
+  }, []);
 
   return (
-    <form className="space-y-4" onSubmit={handleSubmit}>
+    <form 
+      action="https://formsubmit.co/contato@rekaiengenharia.com.br"
+      method="POST" 
+      className="space-y-4"
+      target="_blank"
+      onSubmit={handleFormSubmit} 
+    >
+      {/* Re-adicionados os campos ocultos para FormSubmit */}
+      <input type="hidden" name="_next" value="/contato" /> 
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_subject" value="Novo contato pelo site" /> 
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div>
           <label htmlFor="nome" className="block text-sm font-medium text-gray-700 mb-1">Nome</label>
           <input 
             type="text" 
             id="nome" 
-            name="nome"
+            name="nome" // name é importante
             value={formData.nome}
             onChange={handleChange}
             required
@@ -125,7 +109,7 @@ const ContactForm = memo(() => {
           <input 
             type="email" 
             id="email" 
-            name="email"
+            name="email" // name é importante
             value={formData.email}
             onChange={handleChange}
             required
@@ -138,7 +122,7 @@ const ContactForm = memo(() => {
           <input 
             type="tel" 
             id="telefone" 
-            name="telefone"
+            name="telefone" // name é importante
             value={formData.telefone}
             onChange={handleChange}
             className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none"
@@ -150,7 +134,7 @@ const ContactForm = memo(() => {
         <label htmlFor="mensagem" className="block text-sm font-medium text-gray-700 mb-1">Sua Mensagem</label>
         <textarea 
           id="mensagem" 
-          name="mensagem"
+          name="mensagem" // name é importante
           rows={5}
           value={formData.mensagem}
           onChange={handleChange}
@@ -162,18 +146,14 @@ const ContactForm = memo(() => {
       <div>
         <button 
           type="submit"
-          disabled={isSubmitting}
-          className="bg-primary hover:bg-accent-hover text-white py-2 px-6 rounded-md font-medium uppercase tracking-wide disabled:opacity-70"
+          className="bg-primary hover:bg-accent-hover text-white py-2 px-6 rounded-md font-medium uppercase tracking-wide"
         >
-          {isSubmitting ? 'Enviando...' : 'Enviar'}
+          Enviar
         </button>
         
-        {submitStatus === 'success' && (
+        {/* Mensagem de sucesso condicional */}
+        {showSuccessMessage && (
           <p className="mt-2 text-green-600">Mensagem enviada com sucesso!</p>
-        )}
-        
-        {submitStatus === 'error' && (
-          <p className="mt-2 text-red-600">Erro ao enviar mensagem. Tente novamente.</p>
         )}
       </div>
     </form>
@@ -190,23 +170,8 @@ export default function ContactFAQForm() {
     setOpenQuestion(prev => prev === index ? null : index);
   }, []);
 
-  const faqItems = [
-    {
-      question: "Como entrar em contato com a Rekai Arquitetura e Engenharia?",
-      answer: (
-        <div>
-          <p>
-            Você pode entrar em contato conosco através dos seguintes canais:
-          </p>
-          <ul className="mt-2 space-y-1">
-            <li>Telefone: +55 (11) 97642-8037</li>
-            <li>WhatsApp: +55 (11) 97642-8037</li>
-            <li>E-mail: contato@rekaiengenharia.com.br</li>
-            <li>Formulário de contato: Preencha o formulário ao lado</li>
-          </ul>
-        </div>
-      )
-    }
+  const faqItems: FAQItemData[] = [
+    // Item removido - array agora vazio, mas tipado
   ];
 
   return (
@@ -220,40 +185,33 @@ export default function ContactFAQForm() {
               Estamos prontos para tirar todas as suas dúvidas
             </h3>
             
-            {/* Informações de Horário - Sempre visível */}
+            {/* Informações de Horário - Simplificado */}
             <div className="mb-8 bg-white p-4 rounded-md border border-gray-100 shadow-sm">
               <h4 className="font-semibold text-gray-800 mb-3">Horário de Atendimento</h4>
               <div className="text-gray-600">
-                <p className="mb-2">Nosso horário de atendimento é:</p>
-                <ul className="space-y-1">
-                  <li>Segunda: 08h às 18h</li>
-                  <li>Terça: 08h às 18h</li>
-                  <li>Quarta: 08h às 18h</li>
-                  <li>Quinta: 08h às 18h</li>
-                  <li>Sexta: 08h às 18h</li>
-                  <li>Sábado: Fechado</li>
-                  <li>Domingo: Fechado</li>
-                </ul>
+                <p className="mb-2">Segunda a Sexta: 8h às 18h</p>
                 <p className="mt-3">
-                  Vale lembrar que você pode entrar em contato quando quiser, 
+                  (Você pode entrar em contato quando quiser, 
                   responderemos o mais rápido possível dentro do nosso horário de
-                  atendimento.
+                  atendimento.)
                 </p>
               </div>
             </div>
             
-            {/* FAQ expandível */}
-            <div className="space-y-6">
-              {faqItems.map((item, index) => (
-                <FAQItem 
-                  key={index}
-                  item={item}
-                  index={index}
-                  isOpen={openQuestion === index}
-                  toggleQuestion={toggleQuestion}
-                />
-              ))}
-            </div>
+            {/* FAQ expandível - Renderização condicional se houver itens */}
+            {faqItems.length > 0 && (
+              <div className="space-y-6">
+                {faqItems.map((item, index) => (
+                  <FAQItem 
+                    key={index}
+                    item={item}
+                    index={index}
+                    isOpen={openQuestion === index}
+                    toggleQuestion={toggleQuestion}
+                  />
+                ))}
+              </div>
+            )}
           </div>
           
           {/* Coluna da direita - Formulário */}

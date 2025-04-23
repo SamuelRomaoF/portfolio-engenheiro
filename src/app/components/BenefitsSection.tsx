@@ -21,19 +21,6 @@ const BenefitsSection = () => {
               inovação em cada projeto. Conte com uma equipe dedicada e equipamentos modernos 
               para garantir a segurança e a qualidade que você merece.
             </p>
-            
-            <div className="flex items-center">
-              <div className="w-16 h-16 flex-shrink-0 mr-4 bg-gray-100 rounded-full flex items-center justify-center">
-                <div className="text-gray-900 font-bold text-sm">
-                  ABNT
-                  <br />
-                  NBR
-                </div>
-              </div>
-              <p className="text-sm text-gray-500">
-                Em conformidade com as normas técnicas regulamentadas pela NBR/ABNT.
-              </p>
-            </div>
           </div>
           
           {/* Coluna da direita */}
@@ -61,12 +48,13 @@ const BenefitsSection = () => {
             {/* Benefício 2 */}
             <div className="flex items-start">
               <div className="w-14 h-14 flex-shrink-0 mr-5">
-                <div className="w-14 h-14 text-gray-900">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M11.584 2.376a.75.75 0 01.832 0l9 6a.75.75 0 11-.832 1.248L12 3.901 3.416 9.624a.75.75 0 01-.832-1.248l9-6z" />
-                    <path fillRule="evenodd" d="M20.25 10.332v9.918H21a.75.75 0 010 1.5H3a.75.75 0 010-1.5h.75v-9.918a.75.75 0 01.634-.74A49.109 49.109 0 0112 9c2.59 0 5.134.175 7.616.514a.75.75 0 01.634.74zm-7.5 2.418a.75.75 0 00-1.5 0v6.75a.75.75 0 001.5 0v-6.75zm3-.75a.75.75 0 01.75.75v6.75a.75.75 0 01-1.5 0v-6.75a.75.75 0 01.75-.75zM9 12.75a.75.75 0 00-1.5 0v6.75a.75.75 0 001.5 0v-6.75z" clipRule="evenodd" />
-                  </svg>
-                </div>
+                <img 
+                  src="https://cdn-icons-png.flaticon.com/512/252/252912.png" 
+                  alt="Experiência e Conhecimento Técnico" 
+                  width={56} 
+                  height={56}
+                  className="w-14 h-14"
+                />
               </div>
               <div>
                 <h3 className="text-xl font-semibold text-gray-800 mb-2">Experiência e Conhecimento Técnico</h3>

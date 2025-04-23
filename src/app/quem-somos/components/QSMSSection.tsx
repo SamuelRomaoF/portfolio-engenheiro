@@ -120,6 +120,10 @@ export default function QSMSSection() {
           <p className="text-gray-700 max-w-4xl mx-auto mb-12 leading-relaxed">
             Na Rekai Arquitetura e Engenharia, nossa política é pautada por valores sólidos e compromissos claros com nossos clientes, colaboradores, fornecedores e o meio ambiente. Acreditamos que a excelência em nossos serviços só é possível quando aliamos qualidade, inovação e responsabilidade social e ambiental.
           </p>
+
+          <h3 className="text-2xl font-semibold uppercase text-gray-800 mb-10">
+            DIFERENCIAIS
+          </h3>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">

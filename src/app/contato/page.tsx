@@ -6,7 +6,7 @@ import ContactHeader from './components/ContactHeader';
 
 export default function Contato() {
   return (
-    <main className="min-h-screen flex flex-col">
+    <main className="min-h-screen flex flex-col bg-gray-50">
       <Navbar />
       
       <div className="flex-grow pt-20">

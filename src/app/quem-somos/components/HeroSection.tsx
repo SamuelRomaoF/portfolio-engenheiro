@@ -8,7 +8,7 @@ export default function HeroSection() {
         <div className="w-full h-[80%] overflow-hidden rounded-2xl">
           <div className="w-full h-full transition-all duration-500 hover:filter-none filter grayscale relative">
             <img 
-              src="https://img.freepik.com/fotos-premium/equipe-de-engenheiros-e-arquitetos-discutindo-projeto-arquitetonico-no-escritorio_236854-41404.jpg" 
+              src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=2684&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
               alt="Equipe Rekai Engenharia"
               className="object-cover object-center w-full h-full"
             />
@@ -21,7 +21,7 @@ export default function HeroSection() {
         <div className="w-full h-60 overflow-hidden rounded-xl mb-6">
           <div className="w-full h-full filter grayscale">
             <img 
-              src="https://img.freepik.com/fotos-premium/equipe-de-engenheiros-e-arquitetos-discutindo-projeto-arquitetonico-no-escritorio_236854-41404.jpg" 
+              src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=2684&auto=format&fit=crop&ixlib=rb-rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
               alt="Equipe Rekai Engenharia"
               className="object-cover object-center w-full h-full"
             />
@@ -55,19 +55,19 @@ export default function HeroSection() {
         </div>
         
         <div className="w-full mb-12">
-          <h2 className="text-xl font-bold tracking-wide uppercase text-center mb-8">
+          <h2 className="text-xl font-bold tracking-wide uppercase text-center md:text-right mb-8">
             NOSSA MISSÃO, VISÃO E VALORES
           </h2>
           
           <div className="text-center md:text-right mb-6 px-4 md:px-0">
             <p className="text-base leading-relaxed">
-              <span className="font-medium">Missão:</span> &ldquo;Simplificar a execução de projetos, entregando resultados excepcionais com qualidade, inovação e atendimento diferenciado.&rdquo;
+              <span className="font-medium">Missão:</span> Simplificar a execução de projetos, entregando resultados excepcionais com qualidade, inovação e atendimento diferenciado.
             </p>
           </div>
           
           <div className="text-center md:text-right mb-6 px-4 md:px-0">
             <p className="text-base leading-relaxed">
-              <span className="font-medium">Visão:</span> &ldquo;Ser reconhecida como referência em arquitetura e engenharia, destacando-se pela excelência e compromisso com os clientes.&rdquo;
+              <span className="font-medium">Visão:</span> Ser reconhecida como referência em arquitetura e engenharia, destacando-se pela excelência e compromisso com os clientes.
             </p>
           </div>
           

@@ -15,9 +15,9 @@ const Hero = () => {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="flex flex-col md:flex-row items-center">
+        <div className="flex flex-col items-center">
           {/* Conteúdo textual centralizado */}
-          <div className="md:w-1/2 mb-10 md:mb-0 text-center md:text-center">
+          <div className="w-full mb-10 md:mb-0 text-center">
             <h2 className="text-yellow-600 font-medium mb-4 font-sans">
               Arquitetura e Urbanismo
             </h2>
@@ -26,7 +26,7 @@ const Hero = () => {
               Arquitetura, Urbanismo e<br />
               Engenharia Civil
             </h1>
-            <p className="text-gray-700 text-lg mb-8 max-w-xl mx-auto font-sans">
+            <p className="text-gray-700 text-lg mb-8 mx-auto font-sans">
               Somos a Rekai Arquitetura e Engenharia, uma empresa dedicada a garantir o bem-estar 
               e a segurança dos nossos clientes. Nosso compromisso é entregar excelência em cada 
               projeto, oferecendo soluções inovadoras, eficientes e alinhadas com as melhores 
@@ -40,16 +40,7 @@ const Hero = () => {
             </Link>
           </div>
           
-          {/* Imagem do engenheiro */}
-          <div className="md:w-1/2">
-            <div className="relative h-96 md:h-[550px] w-full">
-              <img
-                src="https://i.im.ge/2024/05/27/Ka4KTm.depositphotos-430556910-stock-photo-male-worker-or-builder-in.jpeg"
-                alt="Engenheiro Civil com capacete amarelo"
-                className="object-contain object-center w-full h-full"
-              />
-            </div>
-          </div>
+          {/* Imagem do engenheiro removida */}
         </div>
       </div>
     </section>

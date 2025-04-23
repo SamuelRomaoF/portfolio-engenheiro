@@ -31,7 +31,7 @@ export default function Navbar() {
             <Link href="/" className="flex items-center">
               <div className="relative h-9 w-28">
                 <img
-                  src="/icons/icone-rekai.png" 
+                  src="/logocabecario.jpeg"
                   alt="Rekai Engenharia"
                   className="object-contain h-full"
                 />

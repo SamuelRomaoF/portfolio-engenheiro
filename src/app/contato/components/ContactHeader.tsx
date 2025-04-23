@@ -49,7 +49,7 @@ export default function ContactHeader() {
                     <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-.4 4.25l-7.07 4.42c-.32.2-.74.2-1.06 0L4.4 8.25a.85.85 0 11.87-1.44L12 11l6.73-4.2a.85.85 0 11.87 1.44z" />
                   </svg>
                 </div>
-                <span className="text-gray-600">contato@rekaengenharia.com.br</span>
+                <span className="text-gray-600">contato@rekaiengenharia.com.br</span>
               </div>
             </div>
           </div>
